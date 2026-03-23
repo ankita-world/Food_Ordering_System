@@ -2,11 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Documents</title>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
+
 <body>
 
-<h1><a href="{% url 'show_btypes' %}">Add And Show Biryani Types</a></h1>
-<h1><a href="{% url 'show_biryani' %}">Add And Show Biryani</a></h1>
+<div class="container">
+    <div class="title">Food Management System</div>
+
+    <h1>
+        <a href="{% url 'show_btypes' %}">
+            Add & View Food Types
+        </a>
+    </h1>
+
+    <h1>
+        <a href="{% url 'show_biryani' %}">
+            Add & View Food Items
+        </a>
+    </h1>
+</div>
+
 </body>
 </html>
