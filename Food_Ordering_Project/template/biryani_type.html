@@ -2,52 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Food Types</title>
     <style>
-        table, th,tr,td {
-            border:1px solid black;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .title {
+            background-color: #2c3e50;
+            color: white;
+            font-size: 24px;
+            padding: 15px;
+        }
+        .input-box {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .msg {
+            color: green;
+            font-size: 18px;
+        }
+        .header-row {
+            background-color: #ecf0f1;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 <form action="{% url 'add_btypes' %}" method="post">
-    {% csrf_token %}
-    <table align="center" border="2" width="500px">
+    {% csrf_token %}    
+    <table>
         <tr>
-            <th style="font-family: Algerian;background-color: steelblue;color: white;font-size: 35px"><h2>Add Biryani Type</h2></th>
+            <th class="title">Add Various Types of Food</th>
         </tr>
         <tr>
-            <th><input type="text" placeholder="Biryani Type Name" name="name" required style="margin:10px"></th>
+            <th>
+                <input type="text" 
+                       placeholder="Enter Food Type Name" 
+                       name="name" 
+                       required 
+                       class="input-box">
+            </th>
         </tr>
         <tr>
-         <th>
-             <button type="submit" style="background-color: blue;color: white;margin: 10px">Save</button>
-         </th>
+            <th>
+                <button type="submit" class="btn">Save</button>
+            </th>
         </tr>
         {% for x in messages %}
-                <tr>
-                    <th style="color: palegreen;font-size: 25px">{{ x }}</th>
-                </tr>
-            {% endfor %}
-
+        <tr>
+            <th class="msg">{{ x }}</th>
+        </tr>
+        {% endfor %}
     </table>
 </form>
-    <br><hr><br>
-<table align="center" border="2" width="500px">
+<br><hr><br>
+<table>
     <tr>
-        <th colspan="2" style="font-family: Algerian;background-color: steelblue;color: white;font-size: 50px">Types Of Biryani's</th>
+        <th colspan="2" class="title">Types Of Foods</th>
     </tr>
-    <tr style="background-color: pink;color: deeppink;font-size: 30px">
+    <tr class="header-row">
         <th>Number</th>
-        <Th>Biryani Type Name</Th>
+        <th>Food Name</th>
     </tr>
     {% for bt in btypes %}
-    <tr align="center" >
-        <td>{{bt.id}}</td>
-        <td>{{bt.name}}</td>
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ bt.name }}</td>
     </tr>
     {% endfor %}
 </table>
-
 </body>
 </html>
