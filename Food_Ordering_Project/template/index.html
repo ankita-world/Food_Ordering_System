@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-
     <style>
         body {
             margin: 0;
@@ -14,7 +13,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .container {
             background: white;
             padding: 40px;
@@ -23,12 +21,10 @@
             text-align: center;
             width: 350px;
         }
-
         h1 {
             font-size: 18px;
             margin: 20px 0;
         }
-
         a {
             text-decoration: none;
             display: block;
@@ -38,11 +34,9 @@
             border-radius: 5px;
             transition: 0.3s;
         }
-
         a:hover {
             background-color: #2980b9;
         }
-
         .title {
             font-size: 24px;
             margin-bottom: 20px;
@@ -50,26 +44,20 @@
             font-weight: bold;
         }
     </style>
-
 </head>
-
 <body>
-
 <div class="container">
     <div class="title">Food Management System</div>
-
     <h1>
         <a href="{% url 'show_btypes' %}">
             Add & View Food Types
         </a>
     </h1>
-
     <h1>
         <a href="{% url 'show_biryani' %}">
             Add & View Food Items
         </a>
     </h1>
 </div>
-
 </body>
 </html>
